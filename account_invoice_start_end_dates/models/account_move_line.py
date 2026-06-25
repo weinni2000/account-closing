@@ -12,7 +12,7 @@ class AccountMoveLine(models.Model):
 
     start_date = fields.Date(index=True)
     end_date = fields.Date(index=True)
-    must_have_dates = fields.Boolean(related="product_id.must_have_dates")
+    must_have_dates = fields.Boolean(related="product_id.must_have_dates", store=True)
 
     @api.constrains(
         "start_date", "end_date", "display_type", "product_id", "parent_state"
